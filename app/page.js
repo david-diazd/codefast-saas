@@ -1,5 +1,6 @@
 import ButtonLogin from "@/components/ButtonLogin";
 import ListItem from "@/components/ListItem";
+import FAQListItem from "@/components/FAQListItem";
 
 export default function Home() {
   const isLoggedIn = true; // Simulating user login state
@@ -66,6 +67,37 @@ export default function Home() {
           </ul>
 
           <ButtonLogin isLoggedIn={isLoggedIn} name={name} extraStyle="w-full"/>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+
+      <section className="bg-base-200">
+        <div className="py-32 max-w-3xl mx-auto px-8">
+          <p className="text-sm uppercase font-medium text-center text-primary mb-4">
+            FAQ
+          </p>
+          <h2 className="text-3xl lg:text-4xl font-extrabold mb-12 text-center">
+            Frequently Asked Questions
+          </h2>
+
+            <ul className="max-w-lg mx-auto">
+              {
+                [
+                  { //this is an object
+                    question: "What I do get exactly?", 
+                    answer: "Loreum Ipseum",
+                  },
+                  { //this is an object
+                    question: "How does it work?", 
+                    answer: "Loreum Ipseum",
+                  },
+                ].map((qa) => (
+                  <FAQListItem key={qa.question} qa={qa} />
+                ))
+              }
+            </ul>
+
         </div>
       </section>
     </main>
